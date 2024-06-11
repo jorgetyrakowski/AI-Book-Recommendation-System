@@ -115,13 +115,13 @@ def hybrid_predict(user_id, book_id, svd_model, tfid_model, books_df):
         svd_prediction = np.nan
     
     # TF-IDF prediction (using average rating of similar books)
+    tfid_prediction = np.nan # Placeholder
     #book_name = books_df.loc[books_df['book_id'] == book_id, 'title'].values[0]
     #similar_books = recommend_similar_books_tfid_baseline(book_name, tfid_model, books_df)
     #if not similar_books.empty:
     #    tfid_prediction = books_df.loc[books_df['book_id'].isin(similar_books['book_id']), 'average_rating'].mean()
     #else:
     #    tfid_prediction = np.nan
-    tfid_prediction = np.nan
     
     # Combine the predictions (simple average, you can use a weighted average or other methods)
     if np.isnan(svd_prediction) and np.isnan(tfid_prediction):
@@ -205,13 +205,6 @@ def streamlit_app():
 
     # Button for Baseline test using surprise
     elif st.button('Baseline Test'):        # M
-
-        recommended_books_svd = recommend_similar_books_svd(selected_book_id, svd_model, books_df)
-        recommended_books_tfid = recommend_similar_books_tfid(selected_title, tfid_model, books_df)
-
-        # Combine the recommendations and remove duplicates
-        all_recommended_books = pd.concat([recommended_books_svd, recommended_books_tfid]).drop_duplicates(
-            subset='book_id').head(10)
         
         status_text = st.status(label = "Evaluating baseline model... Please wait.")
         progress_bar = st.progress(0)
