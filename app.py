@@ -213,7 +213,7 @@ def streamlit_app():
         all_recommended_books = pd.concat([recommended_books_svd, recommended_books_tfid]).drop_duplicates(
             subset='book_id').head(10)
         
-        status_text = st.status("Evaluating baseline model... Please wait.")
+        status_text = st.status(label = "Evaluating baseline model... Please wait.")
         progress_bar = st.progress(0)
         
         ###########################################################
