@@ -12,6 +12,7 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 import time
+import os
 
 def load_data():
     """
@@ -20,7 +21,10 @@ def load_data():
     Returns:
     pandas.DataFrame: The loaded dataset.
     """
-    data = pd.read_csv(r'books_enriched.csv', index_col=[0], converters={col: literal_eval for col in ['authors', 'genres', 'author2']})
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir,'data','books_enriched.csv')
+
+    data = pd.read_csv(file_path, index_col=[0], converters={col: literal_eval for col in ['authors', 'genres', 'author2']})
     return data
 
 
@@ -89,5 +93,10 @@ def get_recommendations(
 
 books=get_recommendations("Harry Potter Boxset (Harry Potter, #1-7)", distance_metric=cos_distance_extended)
 
-with open('tfid.pkl','wb') as file:
-    pickle.dump(cos_distance_extended,file)
+models_dir = os.path.join(os.getcwd(), "models")
+os.makedirs(models_dir, exist_ok=True)
+
+file_path = os.path.join(models_dir, "tfid.pkl")
+
+with open(file_path, 'wb') as file:
+    pickle.dump(cos_distance_extended, file)
