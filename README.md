@@ -4,9 +4,6 @@ AI Course Final Project
 ##Installation
 To get the Hybrid Book Recommendation System up and running on your local machine, follow these step-by-step instructions:
 
-Prerequisites
-Ensure that you have Python installed on your computer. You can download Python from python.org. This project is compatible with Python 3.6 and newer versions.
-
 #### Step 1: Clone the Repository
 First, clone the project repository to your local machine using Git. Open your terminal and run the 
 following command:
@@ -54,3 +51,11 @@ Upon launching the application, you will be directed to the main page where you 
 
 Select a Book: Browse through a list of books or search for a specific book you like.
 Get Recommendations: After selecting a book, the system will use both the collaborative and content-based models to suggest other books you might enjoy.
+
+![image](https://github.com/jorgetyrakowski/AI-Book-Recommendation-System/assets/88347278/620ac8b3-083d-45d5-a570-4bfdc7d47b68)
+
+![image](https://github.com/jorgetyrakowski/AI-Book-Recommendation-System/assets/88347278/e8b0256c-a6d0-4a39-aefc-86274ef255f5)
+
+![image](https://github.com/jorgetyrakowski/AI-Book-Recommendation-System/assets/88347278/e4d69562-02d6-4f5f-b160-a86967a08e20)
+
+
