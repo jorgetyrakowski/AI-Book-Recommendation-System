@@ -1,7 +1,7 @@
 # AI-Book-Recommendation-System
 AI Course Final Project 
 
-##Installation
+## Installation
 To get the Hybrid Book Recommendation System up and running on your local machine, follow these step-by-step instructions:
 
 #### Step 1: Clone the Repository
